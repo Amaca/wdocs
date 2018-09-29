@@ -1,0 +1,35 @@
+/* your custom css */
+
+.btn {
+    padding: 15px 30px;
+    color: white;
+    background: #01c0f6;
+    border-radius: 4px;
+    margin: 16px 0;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all .3s ease-in-out;
+}
+
+.btn:hover {
+    color: white;
+    text-decoration: none;
+    background: #393939;
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}

@@ -4,7 +4,7 @@
     "Strumenti di sviluppo": ["strumenti-sviluppo", "librerie"],
     "Progetto base front-end": ["progetto-frontend", "node-npm", "package-json-gulp","gulpfile-task"],
     "Progetto WP e BOM": ["versioning","bom","wordpress"],
-    "Produzione template e Convenzioni": ["doc5"],
-    "Altro": ["doc6"]
+    "Produzione template e Convenzioni": ["modularita", "moduli-modificatori", "naming-bem", "sass-mixin", "flex-bootstrap-javascript"],
+    "Altro": ["supporto-suggerimenti"]
   }
 }

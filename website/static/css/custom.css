@@ -19,7 +19,14 @@
     background: #393939;
 }
 
+.img {
+    width: 80%;
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+    .img {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 1024px) {

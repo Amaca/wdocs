@@ -20,13 +20,13 @@ Scrivere CSS su larga scala senza strutturare a dovere le classi, i naming e il 
   <p class="bio">...</p>
 </div>
 ```
-Alcune domande che posso pormi leggendo questo codice:
+Alcune domande che posso pormi leggendo questo HTML:
 
->In che modo _box_ e _profile_ sono correlati tra loro? In che modo il _profilo_ e _avatar_ sono correlati tra loro? Sono collegati tra loro? La classe _image_ e quella _bio_ si troveranno nella stessa parte del CSS? Puoi usare _avatar_ altrove?
+>In che modo _box_ e _profile_ sono correlati tra loro? In che modo il _profilo_ e _avatar_ sono correlati tra loro o non lo sono? La classe _image_ e quella _bio_ si troveranno nella stessa parte del CSS? Puoi usare _avatar_ altrove?
 
 * __Difficile riusabilità:__
 
-Riusare il codice può essere sorprendentemente difficile. Ad esempio: c'è uno stile su una pagina che vuoi riutilizzare su un'altra pagina, ma quando ci provi, scopri che è stato scritto in un modo che funziona solo sulla prima. 
+Riusare il codice può essere sorprendentemente difficile. Ad esempio: c'è uno stile su una pagina che vuoi riutilizzarlo su un'altra, ma quando ci provi, scopri che è stato scritto in un modo che funziona solo sulla prima. 
 
 L'autore riteneva che quello stile dovesse essere usato solo all'interno di un particolare elemento o che ereditasse determinate classi dalla pagina. Quindi fuori da quel contesto, non funziona e per evitare di rompere l'originale, duplichi il codice da un'altra parte e lavori su quello.
 

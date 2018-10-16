@@ -4,9 +4,11 @@ title: Moduli sass e mixin
 sidebar_label: Moduli sass e mixin
 ---
 
-Grazie all'uso dei preprocessori css, possiamo utilizzare una serie di strumenti che ci aiutano a modulare ancora di più i nostri elementi.
+Grazie all'uso dei [preprocessori css](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor), possiamo utilizzare una serie di strumenti che ci aiutano a modulare ancora di più i nostri elementi.
 
-Al momento websolute utilizza il preprecessore _scss_ , quindi è questo che consigliamo di usare (infatti è quello già configurato nei temi base discussi in precedenza)
+Al momento Websolute utilizza il preprecessore [sass](http://sass-lang.com/) ed è questo che consigliamo di usare. 
+
+Il tema base discusso precedentemente è già configurato per la compilazione dei css con sass.
 
 ## Moduli .sass
 
@@ -22,7 +24,7 @@ Nel nostro tema base i file sass sono importati da un file principale chiamato _
 @import "_modules/footer"; 
 ```
 
->Ad ogni modulo che creiamo (come ad esempio il nostro _.box_ ) possiamo associargli un file _.sass_ in cui definire tutti gli elementi e i suoi modificatori.
+>Ad ogni modulo che creiamo (come ad esempio il nostro __.box__ ) possiamo associargli un file _.sass_ in cui definire tutti gli elementi e i suoi modificatori.
 
 In questo modo sarà molto facile, anche per uno frontender che non ha mai visto il codice, trovare il file legato al modulo che cerca.
 
@@ -33,7 +35,9 @@ I preprocessori css ci mettono a disposizione le variabili, che possiamo definir
 
 Allo stesso modo possiamo includere dei mixins, cioè delle vere e proprie funzioni per generare il css. 
 
-Per includere mixins e variabili negli altri file, dopo averli creati e definiti basta scrivere in cima ai moduli:
+Per maggiori informazioni a riguardo, vi consigliamo di leggere la [guida ufficiale sass](http://sass-lang.com/guide) 
+
+Per includere __mixins__ e __variabili__ negli altri file, dopo averli creati e definiti, basta scrivere in cima ai file sass:
 
 ```
 @import 'variables';
@@ -117,4 +121,4 @@ Per utilizzare le media query, non dovremo far altro che scrivere:
 
 ```
 
-Andiamo ora a vedere alcune convenzioni riguardo il javascript.
+Andiamo ora a parlare di Flex, Bootstrap e di alcune convenzioni riguardo il javascript.

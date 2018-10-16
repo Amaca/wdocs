@@ -8,7 +8,7 @@ Tenendo ben presenti i concetti di modularità, andiamo a vedere alcune convenzi
 
 ## Modulo BOX
 
-Cerchiamo di capire quali sono i moduli che possiamo trovare in un layout generico. 
+Cerchiamo di capire quali sono gli che possiamo trovare in un ipotetico layout. 
 
 Solitamente riusciamo facilmente a definire almeno questi:
 
@@ -20,7 +20,8 @@ Solitamente riusciamo facilmente a definire almeno questi:
 * Immagini
 * CTA
 
-Tutti gli elementi sopracitati, possono essere divisi in piccoli moduli riutilizzabili in tutto il sito. Ad esempio potremmo definire un elemento denominato BOX che può contenere tutta una serie di elementi:
+Essi possono essere divisi in piccoli moduli riutilizzabili in tutto il sito. 
+Ad esempio potremmo definire un elemento denominato BOX che può contenere tutta una serie di elementi:
 
 ```
 .box {
@@ -54,7 +55,7 @@ Tutti gli elementi sopracitati, possono essere divisi in piccoli moduli riutiliz
 
 >Questo elemento __.box__ è definibile modulo in quanto al suo interno ha degli elementi che si comporteranno sempre alla stessa maniera, a prescindere da dove verrà messo e riutilizzato nel sito. 
 
->Naturalmente abbiamo bisogno di cambiare il comportamento del .box a seconda del design, e potremo farlo con classi _"modificatore"_ o usando il modulo all'interno di un altro componente che va a variare le sue regole di default.
+>Naturalmente abbiamo bisogno di cambiare il comportamento del __.box__ a seconda del design, e potremo farlo con classi _"modificatore"_ o usando il modulo all'interno di un altro componente che va a variare le sue regole di default.
 
 __Attenzione!__
 La classe __.cta__ potrebbe essere una lista di bottoni, __che a loro volta sono definibili moduli__. 
@@ -73,7 +74,7 @@ Ad esempio:
 </div>
 ```
 
-Quindi, oltre ad aver definito il modulo .box, dovremo definire anche il .btn che avrà le sue varianti (nell'esempio *btn-main*, *btn-ghost* e *btn-inline*) e i suoi comportamenti.
+Quindi, oltre ad aver definito il modulo __.box__, dovremo definire anche il .btn che avrà le sue varianti (nell'esempio *btn-main*, *btn-ghost* e *btn-inline*) e i suoi comportamenti.
 
 >E' proprio questo il concetto di modularità: creare tanti elementi che possono essere iniettati all'interno di altri.
 
@@ -90,7 +91,7 @@ Partendo da questo esempio:
 </div>
 ```
 
-ipotizziamo che lo stile legato al modulo .box sia questo:
+ipotizziamo che lo stile legato al modulo __.box__ sia questo:
 
 ```
 .box {

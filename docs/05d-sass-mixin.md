@@ -4,15 +4,15 @@ title: Moduli sass e mixin
 sidebar_label: Moduli sass e mixin
 ---
 
-Grazie all'uso dei [preprocessori css](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor), possiamo utilizzare una serie di strumenti che ci aiutano a modulare ancora di più i nostri elementi.
+Grazie all'uso dei [pre-processori css](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor), possiamo utilizzare una serie di strumenti che ci aiutano a modulare ancora di più i nostri elementi.
 
-Al momento Websolute utilizza il preprecessore [sass](http://sass-lang.com/) ed è questo che consigliamo di usare. 
+Al momento Websolute utilizza il pre-precessore [sass](http://sass-lang.com/) ed è questo che consigliamo di usare. 
 
 Il tema base discusso precedentemente è già configurato per la compilazione dei css con sass.
 
-## Moduli .sass
+## Moduli .scss
 
-Nel nostro tema base i file sass sono importati da un file principale chiamato _src/scss/main.scss_ che con questa sintassi include gli altri moduli presenti nella cartella _modules_:
+Nel nostro tema base i file .scss sono importati da un file principale chiamato _src/scss/main.scss_ che con questa sintassi include gli altri moduli presenti nella cartella _modules_:
 
 ```
 @import "_modules/variables";
@@ -24,9 +24,9 @@ Nel nostro tema base i file sass sono importati da un file principale chiamato _
 @import "_modules/footer"; 
 ```
 
->Ad ogni modulo che creiamo (come ad esempio il nostro __.box__ ) possiamo associargli un file _.sass_ in cui definire tutti gli elementi e i suoi modificatori.
+>Ad ogni modulo che creiamo (come ad esempio il nostro __.box__ ) possiamo associargli un file _.scss_ in cui definire tutti gli elementi e i suoi modificatori.
 
-In questo modo sarà molto facile, anche per uno frontender che non ha mai visto il codice, trovare il file legato al modulo che cerca.
+In questo modo sarà molto facile, anche per un frontender che non ha mai visto il codice, trovare il file legato al modulo che cerca.
 
 
 ## Variabili e Mixins

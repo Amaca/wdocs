@@ -112,6 +112,14 @@ BEM (Block Element Modifier) è un modo di scrivere CSS che aiuta molto nella st
 
 Vi consigliamo vivamente la [Guida sui CSS modulari](https://spaceninja.com/2018/09/17/what-is-modular-css/) per capire la logica di BEM o la [Guida ufficiale](http://getbem.com/naming/)
 
+BEM definisce 3 tipologie da usare:
+
+1) __Blocchi__: devono essere indipendenti e innestabili, quindi riutilizzabili in qualunque parte del progetto senza rompere niente. I blocchi inoltre sono ripetibili, quindi devono poter essere ripetuti nel layout senza problemi 
+(esempio: .card)
+2) __Elementi__: sono parti di un blocco che non possono essere usati all'infuori di esso. 
+(esempio: .card__image)
+3) __Modificatori__: classi che definiscono il comportamento dei blocchi e dei suoi elementi 
+(esempio: .card--big)
 
 Il caso precedente, scritto in BEM sarebbe:
 
@@ -163,7 +171,6 @@ Qui alcuni esempi molto semplici per capire la logica grazie all'uso di una mini
 
 >BEM è molto pratico principalmente in lettura: con un veloce sguardo all'html siamo in grado di capire i moduli principali, i suoi elementi e i relativi modificatori.
 
-
 Un semplice esempio di uso BEM:
 
 ```
@@ -174,6 +181,8 @@ Un semplice esempio di uso BEM:
 ```
 
 Modificare il modulo listing e tutto ciò che è al suo interno a questo punto diventa facile e leggibile. 
+
+A volte potremmo avere delle classi più lunghe del solito, ma rimane il fatto che è come se stessimo documentando l'html implicitamente, quindi ci sembra utile.
 
 Se volessimo ad esempio sfruttare tutte le classi del listing, apportando però una sola classe modificatore che ne altera il comportamento, avremo:
 

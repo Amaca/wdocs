@@ -45,19 +45,19 @@ Citando la guida:
 
 Se avessimo un design di questo tipo:
 
-<img class="img" src="../img/05a-image-01.gif" >
+<img class="img" src="../assets/05a-image-01.gif" >
 
 ***
 
 Andando ad analizzarlo vedremmo delle sezioni ben distinte, più o meno così:
 
-<img class="img" src="../img/05a-image-02.jpg" >
+<img class="img" src="../assets/05a-image-02.jpg" >
 
 ***
 
 Il che ha senso, ma facendo un passo indietro dovremmo iniziare a pensare alla pagina come un'__insieme di piccoli pezzetti riutilizzabili in più parti nel progetto__.
 
-<img class="img" src="../img/05a-image-03.png" >
+<img class="img" src="../assets/05a-image-03.png" >
 
 ***
 
@@ -65,13 +65,13 @@ L'abilità dello sviluppatore front-end sarà quindi quella di studiare i layout
 
 Ad esempio:
 
-<img class="img" src="../img/05a-image-04.jpg" >
+<img class="img" src="../assets/05a-image-04.jpg" >
 
 ***
 
 Un esempio ancora più concreto di componenti modulari è facebook. Vediamo uno stream classico con evidenziati i moduli css riutilizzati un po' dapertutto nel social network:
 
-<img class="img" src="../img/05a-image-05.png" >
+<img class="img" src="../assets/05a-image-05.png" >
 
 ***
 

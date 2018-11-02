@@ -24,8 +24,8 @@ Photoshop rimane il principale programma per la produzione di layout grafici. In
 
 A prescindere dal programma, i file da inviare in caso di produzione di progetti grafici sono: 
 - File photoshop .psd a livelli divisi opportunamente in cartelle ordinate
-- per i vettoriali file illustrator .ai con iconografia in griglia 64x64 pixel con outline senza stroke
-- File webfont se non fossero open source
+- per i vettoriali file illustrator .ai con iconografia in griglia 64x64 pixel con outline senza stroke oppure solo stroke senza outline, l'importante è che tutte le icone siano della stessa tipologia
+- File webfont se non fossero presenti in CDN esterne
 - Contenuti dove previsto
 
 
@@ -34,13 +34,16 @@ A prescindere dal programma, i file da inviare in caso di produzione di progetti
 * __IDE__: Visual Studio 2018
     * Integrazione TFS (vedi capitolo sul versionamento)
     * Plugin [PHP tools](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.PHPToolsforVisualStudio) per progetti PHP
-* __Client FTP__: [Filezilla](https://filezilla-project.org/), DA AGGIUNGERE
+* __Client FTP__: [Filezilla](https://filezilla-project.org/), [WinSCP](https://winscp.net/eng/download.php)
 * __Text Edit__: [Notepad++](https://notepad-plus-plus.org/download/v7.5.8.html) DA AGGIUNGERE
-* __Git Client__: [SourceTree](https://www.sourcetreeapp.com/)
-* __Browser di sviluppo__: [Chrome](https://www.google.com/chrome/)
+* __Git Client__: [SourceTree](https://www.sourcetreeapp.com/), [GitHub Desktop](https://desktop.github.com/)
+* __Browser di sviluppo__: [Chrome](https://www.google.com/chrome/), Firefox, Explorer 11, Edge, Safari 11
 * __Debug__: DA AGGIUNGERE
 
-In alternativa a Visual Studio 2018, si sta iniziando ad usare [Visual Studio Code](https://code.visualstudio.com/), il progetto open source di Microsoft, con gli opportuni plugin: DA AGGIUNGERE
+In alternativa a Visual Studio 2018, si sta iniziando ad usare [Visual Studio Code](https://code.visualstudio.com/), il progetto open source di Microsoft, con gli opportuni plugin: 
+
+*  TSLint
+*  Beautify
 
 ## Comunicazione
 

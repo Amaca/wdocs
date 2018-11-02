@@ -14,9 +14,9 @@ Nella root del tema troviamo un file chiamato package.json:
 
 ```
 {
-  "name": "gulpstartup",
+  "name": "gulpstartup", // Cambiare con nome cliente
   "version": "1.0.0",
-  "description": "Gulp Startup",
+  "description": "Gulp Startup", // Cambiare con descrizione progetto
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,7 +35,7 @@ Nella root del tema troviamo un file chiamato package.json:
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
-    //"gulp-tfs": "0.0.9",
+    //"gulp-tfs": "0.0.9", // Necessario nel caso in cui il progetto sia sotto TFS
     "gulp-uglify": "^3.0.0",
     "gulp-webserver": "^0.9.1",
     "node-sass": "^4.7.2"
@@ -58,7 +58,12 @@ Dopo alcuni minuti di installazione, vedremo la cartella /node_modules completa 
 Tra quelli scritti in devDependencies, ne troviamo alcuni con la dicitura gulp, che è un task runner.
 
 > [Gulp.js](https://gulpjs.com/) è un toolkit JavaScript open-source di Fractal Innovations e la comunità open source di GitHub. È un esecutore di compiti costruito su Node.js e npm, utilizzato per l'automazione di attività ripetitive che richiedono tempo, coinvolte nello sviluppo del web come la minificazione, la concatenazione, il busting della cache, il test di unità, il linting, l’ottimizzazione ecc.
+Nel caso in cui Gulp non sia stato ancora installato:
 
+```
+npm install gulp-cli -g
+npm install gulp -D
+```
 
 Per avviare i task del gulpfile, è necessario scrivere nella console:
 

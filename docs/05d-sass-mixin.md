@@ -55,48 +55,78 @@ Vediamo intanto i mixin:
 //--------------------------------------------------
 //Media Query
 //--------------------------------------------------
-$xl-width: 1560px;
-$lg-width: 1499px;
+$lg-width: 1560px;
 $md-width: 1199px;
 $sm-width: 991px;
 $xs-width: 767px;
 $xxs-width: 575px;
+$xxxs-width: 374px;
 
-
-@mixin xl {
-  @media (max-width: #{$xl-width}) {
-    @content;
-  }
-} 
-
-@mixin lg {
-  @media (max-width: #{$lg-width}) {
-    @content;
-  }
-} 
-
-@mixin md {
-  @media (max-width: #{$md-width}) {
-    @content;
-  }
+@mixin lg-down {
+	@media (max-width: #{$lg-width}) {
+		@content;
+	}
 }
 
-@mixin sm {
-  @media (max-width: #{$sm-width}) {
-    @content;
-  }
+@mixin md-down {
+	@media (max-width: #{$md-width}) {
+		@content;
+	}
 }
 
-@mixin xs {
-  @media (max-width: #{$xs-width}) {
-    @content;
-  }
+@mixin sm-down {
+	@media (max-width: #{$sm-width}) {
+		@content;
+	}
 }
- 
-@mixin xxs {
-  @media (max-width: #{$xxs-width}) {
-    @content;
-  }
+
+@mixin xs-down {
+	@media (max-width: #{$xs-width}) {
+		@content;
+	}
+}
+
+@mixin xxs-down {
+	@media (max-width: #{$xxs-width}) {
+		@content;
+	}
+}
+
+@mixin xxxs-down {
+	@media (max-width: #{$xxxs-width}) {
+		@content;
+	}
+}
+
+
+@mixin lg-up {
+	@media (min-width: #{$lg-width + 1}) {
+		@content;
+	}
+}
+
+@mixin md-up {
+	@media (min-width: #{$md-width + 1}) {
+		@content;
+	}
+}
+
+@mixin sm-up {
+	@media (min-width: #{$sm-width + 1}) {
+		@content;
+	}
+}
+
+@mixin xs-up {
+	@media (min-width: #{$xs-width + 1}) {
+		@content;
+	}
+}
+
+@mixin xxs-up {
+	@media (min-width: #{$xxs-width + 1}) {
+		@content;
+	}
 }
 ```
 
@@ -109,12 +139,16 @@ Per utilizzare le media query, non dovremo far altro che scrivere:
   .text {
     font-size: 20px;
 
-    @include sm { //media query su max width 991px
-      font-size 16px
+    @include sm-down { //media query su max width 991px
+      font-size: 16px
     }
 
-    @include xs { //media query su max width 767px
-      font-size 14px
+    @include xs-down { //media query su max width 767px
+      font-size: 14px
+    }
+
+    @include lg-up { //media query su min width 1560px
+      font-size: 22px
     }
   }
 }

@@ -104,7 +104,7 @@ Quindi a volte è comodo aggiungere dei riferimenti al modulo principale __sulle
 <!-- /Listing-->
 ```
 
-Questo tipo di approccio viene ancor più automatico grazie all'uso della metodologia BEM, che consigliamo fortemente.
+>Questo tipo di approccio viene ancor più automatico grazie all'uso della metodologia BEM, che consigliamo fortemente.
 
 ## Metodologia BEM
 
@@ -139,7 +139,7 @@ Il caso precedente, scritto in BEM sarebbe:
         </div>
       </div>
 
-      <div class="listing__item>
+      <div class="listing__item">
         <div class="img">
           <img src="#" alt="">
         </div>
@@ -160,13 +160,13 @@ Il caso precedente, scritto in BEM sarebbe:
 
 Qui alcuni esempi molto semplici per capire la logica grazie all'uso di una minifigure LEGO, che va a rappresentare il nostro modulo:
 
-<img class="img" src="../img/05c-image-01.png" >
+<img class="img" src="../assets/05c-image-01.png" />
 
-<img class="img" src="../img/05c-image-02.png" >
+<img class="img" src="../assets/05c-image-02.png" />
 
-<img class="img" src="../img/05c-image-03.png" >
+<img class="img" src="../assets/05c-image-03.png" />
 
-<img class="img" src="../img/05c-image-04.png" >
+<img class="img" src="../assets/05c-image-04.png" />
 
 
 >BEM è molto pratico principalmente in lettura: con un veloce sguardo all'html siamo in grado di capire i moduli principali, i suoi elementi e i relativi modificatori.

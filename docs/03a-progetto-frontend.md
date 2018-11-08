@@ -51,6 +51,12 @@ dove:
 
 >__/dist__ sta per *distribution* ed all'interno ci sono i file compilati, minimizzati o compressi. Questa cartella va pubblicata in produzione.
 
-A conferma di ciò, nel file *index.html* vengono inseriti i riferimenti soltanto ai file compilati dentro /dist. Notiamo anche che:
+## Inclusione librerie e consegna sorgenti
+
+Nel file *index.html* vengono inseriti i riferimenti soltanto ai file compilati dentro /dist. Notiamo anche che:
 
 > per ridurre le chiamate HTTP si preferisce includere le librerie direttamente dentro le cartelle di progetto (vedi cartelle /vendor), invece di usare le CDN pubbliche.
+
+>__Attenzione__: l'inclusione dei file va fatta esattamente così come viene indicato dal template base e vanno consegnati sempre progetti sia con i sorgenti non compilati, sia i file di distribuzione compilati ed, eventualmente, minimizzati. 
+
+Ricevere o fornire soltanto file compilati e minimizzati __creerà sicuramente diverse difficoltà ai programmatori o a chi fa maintenance__, perciò è necessario preparare tutti gli strumenti che ci permettono di velocizzare questi interventi.

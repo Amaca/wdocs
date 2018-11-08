@@ -68,20 +68,44 @@ function example() {
 /*--------------------------------------------------
 DOC READY
 --------------------------------------------------*/
-$(function () {
-
-    example();
-
-}); 
+document.addEventListener("DOMContentLoaded", function() {
+  example();
+});
   
     
 /*--------------------------------------------------
 WIN LOAD
 --------------------------------------------------*/ 
-$(window).on('load', function () { 
-}
+window.addEventListener('load', function() {
+
+}, true);
 ```
 
 Nella cartella _src/js/vendor/_ invece troviamo tutte le librerie esterne che includiamo senza doverle modificare. 
 
 >NB: Se avessimo troppo codice in un singolo file, possiamo usarne diversi dal main.js ma sarà poi necessario modificare il gulpfile per la compilazione corretta.
+
+
+## Naming Funzioni e variabili
+
+Anche in javascript dovremmo mantenere una certa pulizia di codice e chiarezza di scrittura. 
+
+Il nome delle variabili e delle funzioni dichiarate devono essere __parlanti__, __coerenti__ con il contesto e di senso compiuto. 
+Si consiglia quindi l'uso del _Camel Case_ per dividere le parole.
+
+da evitare quindi:
+
+```
+function fnt() {
+  var b;
+}
+```
+
+ma usare invece:
+
+```
+function functionName() {
+  var variableName;
+}
+```
+

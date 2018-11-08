@@ -12,8 +12,8 @@ Una volta creati i primi layout, sarà necessario integrarli nelle piattaforme d
 
 Essendo team numerosi è necessario versionare i file più metodicamente possibile. Websolute utilizza due tipologie di versionamento in base alla tipologia di progetto: 
 
-* __git__ per progetti basati su *php*
-* __tfs__ su quelli basati in *dotnet*.
+* __git__ per progetti basati su CMS open source
+* __tfs__ per progetti basati su BOM, il content manager proprietario di Websolute
 
 In entrambi i casi, gli sviluppatori al lavoro sul progetto creeranno l'ambiente di sviluppo e vi forniranno tutti i dati di accesso e le indicazioni necessarie per scaricare i file in locale.  
 

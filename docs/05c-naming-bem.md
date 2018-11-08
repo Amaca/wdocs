@@ -14,6 +14,7 @@ Possiamo usare il tag html __section__ per definire una fascia. Solitamente vien
 
 E' utile usare degli ulteriori _div_ contenitori all'interno della sezione, che possiamo chiamare __.wrapper__ , così da raggruppare degli elementi facilmente (molto utile in caso di uso di flex).
 
+
 Vediamo un esempio di fascia che mostra 2 articoli tra gli ultimi pubblicati:
 
 ```
@@ -54,10 +55,21 @@ Quindi:
 
 >il consiglio principale sul nome degli elementi è di renderli corti, comprensibili e indipendenti dal contenuto, __trovando invece un nome legato alla sua funzione principale__.
 
+## Coerenza e uniformità
+
+Interrompiamo un attimo il naming per sottolineare un paio di note molto importanti.
+
+>Va mantenuta coerenza e uniformità tra i vari file in sviluppo. Se definiamo una _section_ in un template, dovremmo mantenere quella struttura html il più possibile simile alle altre. 
+
+Possiamo naturalmente modificare il suo interno, ma sempre con un certo criterio e con un'attenzione particolare alla visione globale del progetto. Non potremo quindi andare ad aggiungere dei contenitori sopra alla section così, senza motivo o cambiare completamente il codice interno. 
+
+L'html andrebbe modificato grazie all'uso dei modificatori css. Questo perchè il programmatore non dovrà andare a riagganciare tutto l'html da capo, ma andrà soltanto ad inserire le classi di modifica dove è opportuno.
+
+>In aggiunta, l'uso di librerie esterne, come ad esempio gli slider, devono essere limitati il più possibile e, se si decide di usarne uno, dovrà essere sfruttato quello senza andare ad aggiungerne continuamente di nuovi. 
 
 ## Riferimento a genitore su classi
 
-Se avessimo una lista di news, piuttosto che denominarle _.news_ riferendoci al contenuto dell'elento, potremmo chiamare il modulo _.listing_ e gli elementi al suo interno _.item_.
+Torniamo ora ai naming di classi. Se avessimo una lista di news, piuttosto che denominarle _.news_ riferendoci al contenuto dell'elento, potremmo chiamare il modulo _.listing_ e gli elementi al suo interno _.item_.
 
 In questo modo potremo creare un modulo generico chiamato _listing_ utilizzabile in altre parti del progetto, e non legarci necessariamente alle news.
 
@@ -108,7 +120,7 @@ Quindi a volte è comodo aggiungere dei riferimenti al modulo principale __sulle
 
 ## Metodologia BEM
 
-BEM (Block Element Modifier) è un modo di scrivere CSS che aiuta molto nella stesura dei naming, dei moduli e dei loro modificatori.
+BEM (Block Element Modifier) è un modo di scrivere CSS che aiuta molto nella stesura dei naming, dei moduli e dei loro modificatori. In Websolute stiamo iniziando ad utilizzarlo e, a prescindere, aiuta a capire il concetto di componenti.
 
 Vi consigliamo vivamente la [Guida sui CSS modulari](https://spaceninja.com/2018/09/17/what-is-modular-css/) per capire la logica di BEM o la [Guida ufficiale](http://getbem.com/naming/)
 

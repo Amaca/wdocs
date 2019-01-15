@@ -23,17 +23,18 @@ Si è deciso di creare questo tipo di alberatura di cartelle:
 
 project
 │
+└───assets
+│   └───img
+│   └───fonts
+│
 └───dist
 │   └───css
 |       └───vendor
-│   └───fonts
-│   └───img
 │   └───js
 |       └───vendor
 │   
 └───src
-│   └───fonts
-│   └───img
+│   └───css
 │   └───js
 |       └───vendor
 │   └───scss
@@ -50,6 +51,8 @@ dove:
 >__/src__ sta per *source* ed all'interno ci sono tutti i file sorgente, non compilati e non minimizzati. Non è necessario caricare questa cartella in produzione.
 
 >__/dist__ sta per *distribution* ed all'interno ci sono i file compilati, minimizzati o compressi. Questa cartella va pubblicata in produzione.
+
+>__/assets__ cartella per immagini, font,  video e tutti gli assets del sito.  
 
 ## Inclusione librerie e consegna sorgenti
 

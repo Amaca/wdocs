@@ -33,6 +33,7 @@ Nella root del tema troviamo un file chiamato package.json:
     "gulp-imagemin": "^4.1.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-tfs": "0.0.9",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
@@ -53,7 +54,7 @@ npm install
 Se avete installato node.js ed avete aperto la console nella path giusta, npm inizierà a scaricare tutti i moduli installati nel package.json.
 Dopo alcuni minuti di installazione, vedremo la cartella /node_modules completa dei moduli richiesti.
 
-Inoltre verrà creato un package-lock.json, che viene autogenerato e serve per evitare doppie installazioni di moduli e inclusioni. Non avremo la necessità di modificarlo, tuttavia è necessario avere l'ultima versione di npm per renderlo leggibile. Nel paragrafo __Altri comandi utili__ qui sotto, spieghiamo come aggiornare npm. 
+Inoltre verrà creato un __package-lock.json__, che viene autogenerato e serve per evitare doppie installazioni di moduli e inclusioni. Non avremo la necessità di modificarlo, tuttavia è necessario avere l'ultima versione di npm per renderlo leggibile. Nel paragrafo __Altri comandi utili__ qui sotto, spieghiamo come aggiornare npm. 
 
 ## Gulp.js
 Tra i moduli che troviamo in devDependencies del package.json, ne troviamo alcuni con la dicitura gulp, che è un task runner.
@@ -118,6 +119,14 @@ In particolare ci è capitato spesso con il modulo node-sass e si sistema scrive
 ```
 npm rebuild node-sass
 ```
+
+Per aggiornare un solo pacchetto all'ultima versione (sostituire node-sass con nome del pacchetto):
+
+```
+npm install node-sass@latest --save-dev
+```
+
+
 
 Viene comunque sempre indicato dalla console il modulo da ricompilare, basterà usare il comando cambiando il nome in questione.
 

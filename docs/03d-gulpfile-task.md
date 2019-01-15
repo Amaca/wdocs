@@ -18,15 +18,15 @@ Questo è definito alla fine del gulpfile.js e attiva diversi task:
 
 ```
 gulp.task('default', [
-    //CSS
-    'sass',
-    'sass:watch',
+    //build and minify
+    'minify',
+    //vendor
     'sass:vendor',
-    //JS
-    'js',
-    'js:watch',
     'js:vendor',
-    'js:vendor-watch',
+    //watch
+    'sass:watch',
+    'css:watch',
+    'js:watch',
     //VARIOUS
     'webserver'
 ]);
@@ -51,28 +51,13 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
-        browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7'],
+        browsers: ['last 2 versions', 'Explorer >= 11', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7'],
         cascade: false
     }))
     .pipe(sourcemaps.write())
     .pipe(rename({ dirname: '' }))
     .pipe(gulp.dest('./dist/css/'))
    
-});
-```
-
-
-## task sass:watch
-
-__cosa fa__: rimane in ascolto in attesa di modifiche sui tutti i file .scss presenti nella cartella /src/scss e nei sui figli. 
-
-```
-gulp.task('sass:watch', function () {
-    var watcher = gulp.watch('./src/scss/**/*.scss', ['sass']); 
-    watcher.on('change', function (e) {
-        console.log('watcher.on.change type: ' + e.type + ' path: ' + e.path);
-    });
-    return watcher;
 });
 ```
 
@@ -92,7 +77,7 @@ gulp.task('sass:vendor', function () {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
-        browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7'],
+        browsers: ['last 2 versions', 'Explorer >= 11', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7'],
         cascade: false
     }))
     .pipe(sourcemaps.write())
@@ -102,15 +87,55 @@ gulp.task('sass:vendor', function () {
 });
 ```
 
+## task sass:watch
+
+__cosa fa__: rimane in ascolto in attesa di modifiche su tutti i file .scss presenti nella cartella /src/scss e nei sui figli e attiva il task *sass* al cambiamento
+
+```
+gulp.task('sass:watch', function () {
+    var watcher = gulp.watch('./src/scss/**/*.scss', ['sass']); 
+    watcher.on('change', function (e) {
+        console.log('watcher.on.change type: ' + e.type + ' path: ' + e.path);
+    });
+    return watcher;
+});
+```
+
+## task css
+
+__cosa fa__: copia tutti i file .css da src/css a dist/css
+
+```
+gulp.task('css', function () {
+    return gulp.src('./src/css/**/*.css')
+        .pipe(gulp.dest('./dist/css/'));
+});
+```
+
+## task css watch
+
+__cosa fa__: rimane in ascolto in attesa di modifiche su tutti i file .css presenti nella cartella /src/css e attiva il task *css:minify* al cambiamento
+
+```
+gulp.task('css:watch', function () {
+    var watcher = gulp.watch('./src/css/**/*.css', ['css:minify']);
+    watcher.on('change', function (e) {
+        console.log('watcher.on.change type: ' + e.type + ' path: ' + e.path);
+    });
+    return watcher;
+});
+```
+
 ## task js
 
-__cosa fa__: compila il file src/js/main.js e crea il file dist/js/main.js
+__cosa fa__: copia tutti i file javascript in src/dist esclusi i vendor e li mette in dist/js
 ```
 gulp.task('js', function () {
-    console.log('COMPILING MAIN JS');
-    return gulp.src(
-        './src/js/main.js'
-    )
+    console.log('COMPILING JS');
+    return gulp.src([
+        './src/js/**/*.js',
+        '!./src/js/vendor/**/*.js'
+    ])
     .pipe(header(head))
     .pipe(plumber(function (error) {
         console.log('js error: compile plumber', error);
@@ -119,31 +144,36 @@ gulp.task('js', function () {
 });
 ```
 
-## task js:watch
-
-__cosa fa__: rimane in ascolto in attesa di modifiche sul file src/js/main.js
-```
-gulp.task('js:watch', function () {
-    var watcher = gulp.watch('./src/js/main.js', ['js']);
-    watcher.on('change', function (e) {
-        console.log('watcher.on.change type: ' + e.type + ' path: ' + e.path);
-    });
-    return watcher;
-});
-```
-
 ## task js:vendor
 
 __cosa fa__: compila tutti i file js presenti in src/js/vendor eccetto jquery e li mette in dist/js/vendor
 ```
- console.log('COMPILING VENDOR JS');
+gulp.task('js:vendor', function () {
+    console.log('COMPILING VENDOR JS');
     return gulp.src(
-        './src/js/vendor/**/!(jquery-)*.js'
+        './src/js/vendor/**/*.js'
     )
     .pipe(plumber(function (error) {
         console.log('js error: compile plumber', error);
     }))
     .pipe(gulp.dest('./dist/js/vendor'))
+});
+```
+
+## task js:watch
+
+__cosa fa__: rimane in ascolto in attesa di modifiche sui file javascript in src/js/ esclusi i vendor
+```
+gulp.task('js:watch', function () {
+    var watcher = gulp.watch([
+        './src/js/**/*.js',
+        '!./src/js/vendor/**/*.js'
+    ], ['js:minify']);
+    watcher.on('change', function (e) {
+        console.log('watcher.on.change type: ' + e.type + ' path: ' + e.path);
+    });
+    return watcher;
+});
 ```
 
 ## webserver
@@ -177,8 +207,8 @@ E attiva i seguenti task:
 
 ```
 gulp.task('minify', [
-    'sass:minify',
-    'sass:vendor-minify',
+    'css:minify',
+    'css:vendor-minify',
     'js:minify',
     'js:vendor-minify'
 ]);
@@ -217,17 +247,59 @@ gulp.task('sass:vendor-minify', ['sass:vendor'], function () {
 });
 ```
 
+
+## task css minify
+
+__cosa fa__: unisce e minimizza tutti i file css presenti in dist/css escludendo i vendor. il file main.css viene messo per ultimo nel bundle.
+
+```
+gulp.task('css:minify', ['css', 'sass'], function () {
+    console.log('MINIFYING CSS');
+    return gulp.src([
+        './dist/css/**/*.css',
+        '!./dist/css/main.css',
+        '!./dist/css/vendor/**/*.css',
+        './dist/css/main.css'
+    ])
+    .pipe(cssmin())
+    .pipe(concat('main.min.css'))
+    .pipe(gulp.dest('./dist/css'));
+});
+```
+
+## task css vendor minify
+
+__cosa fa__: unisce e minimizza tutti i file css presenti in dist/css/vendor.
+
+```
+gulp.task('css:vendor-minify', ['sass:vendor'], function () {
+    console.log('MINIFYING VENDOR CSS');
+    return gulp.src(
+        './dist/css/vendor/**/*.css'
+    )
+    // minify
+    .pipe(cssmin())
+    .pipe(concat('vendor.min.css'))
+    .pipe(gulp.dest('./dist/css/vendor'));
+});
+```
+
 ## task js:minify
 
-__a cosa serve__: prima attiva il task js (quindi compila il js e crea il main.js in dist), copia il file javascript compilato, lo minimizza e lo chiama dist/js/main.min.js
+__a cosa serve__: prima attiva il task js (quindi copia tutti i file js da src/js a dist/js), li unisce escludendo i vendor, minimizza e chiama il nuovo file dist/js/main.min.js. il file main.js viene messo per ultimo nel bundle.
 ```
 gulp.task('js:minify', ['js'], function () {
-    console.log('MINIFY MAIN.JS')
-    return gulp.src(
-        './dist/js/main.js'
-    )
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(uglify())
+    console.log('MINIFY JS')
+    return gulp.src([
+        './src/js/**/*.js',
+        '!./src/js/main.js',
+        '!./src/js/vendor/**/*.js',
+        './src/js/main.js'
+    ])
+    .pipe(concat('main.min.js'))
+    .pipe(uglify().on('error', function (e) {
+        console.log(e);
+    }))
     .pipe(gulp.dest('./dist/js'))
 })
 ```
@@ -238,70 +310,15 @@ __a cosa serve__: prima attiva il task js:vendor (quindi compila i file js dei v
 ```
 gulp.task('js:vendor-minify', ['js:vendor'], function () {
     console.log('MINIFY VENDOR JS')
-    return gulp.src(
-        './dist/js/vendor/*.js'
-    )
-    .pipe(uglify())
+    return gulp.src([
+        './dist/js/vendor/!(jquery-)*.js'
+    ])
+    .pipe(uglify().on('error', function (e) {
+        console.log(e);
+    }))
     .pipe(concat('vendor.min.js'))
     .pipe(gulp.dest('./dist/js/vendor'));
 })
-```
-
-
-***
-
-Procediamo ora con il task publish.
-
-## gulp publish
-
-Attiva una serie di task da usare in ottica di pubblicazione. Si attiva da console in questo modo:
-
-```
-gulp publish
-```
-
-E attiva i seguenti task:
-
-```
-gulp.task('publish', [
-    'minify',
-    'jquery',
-    'images',
-    'fonts'
-]);
-```
-
-Il primo ad essere attivato è minify che abbiamo già visto sopra, quindi crea tutti i css e i js e li minimizza.
-
-## task jquery
-
-__a cosa serve__: copia il file jquery e lo mette in dist
-```
-gulp.task('jquery', function () {
-    return gulp.src('./src/js/vendor/jquery-3.1.0.min.js')
-        .pipe(gulp.dest('./dist/js/vendor'));
-});
-```
-
-## task images
-
-__a cosa serve__: prende tutte le immagini presenti in src/img, le compressa e le mette in dist/img
-```
-gulp.task('images', function () {
-    return gulp.src('./src/img/*.+(png|jpg|jpeg|gif|svg)')
-        .pipe(imagemin())
-        .pipe(gulp.dest('./dist/img'));
-});
-```
-
-## task font
-
-__a cosa serve__: copia i font in src/fonts e li mette in dist/fonts
-```
-gulp.task('fonts', function () {
-    return gulp.src('./src/fonts/*')
-        .pipe(gulp.dest('./dist/fonts'));
-});
 ```
 
 ***
@@ -309,5 +326,5 @@ gulp.task('fonts', function () {
 ## Note
 
 * E' possibile modificare il gulpfile a seconda delle esigenze, ma indicativamente la base è questa. 
-* I task che non vengono utilizzati possono essere commentati dai task principali *default*, *minify* e *publish* così da velocizzare le operazioni.
+* I task che non vengono utilizzati possono essere commentati dai task principali *default* e *minify* così da velocizzare le operazioni.
 * I task di minimizzazione possono essere messi in quelli di compilazione, così da minimizzarli ad ogni aggiornamento dei file.

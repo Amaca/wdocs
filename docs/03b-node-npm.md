@@ -40,4 +40,4 @@ Sebbene npm è quello attualmente più usato in Websolute, ci sono altri package
 
 >__Webpack__ è già usato in Websolute su alcuni progetti avanzati e, probabilmente, sarà presto necessario integrarlo nel tema blank rendendolo uno standard.
 
-Non ci resta che scoprire come istallare i pacchetti del tema blank.
+Non ci resta che scoprire come istallare i pacchetti del boilerplate.

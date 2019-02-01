@@ -4,41 +4,40 @@ title: Progetto Bom
 sidebar_label: Progetto Bom
 ---
 
-Il __BOM__ è un gestore di contenuti sviluppato e di proprietà di Websolute. E' molto potente, solido e personalizzabile. Per questo motivo viene spesso utilizzato per progetti di una certa complessità. E' sviluppato in *dotnet* e *aspnet* ed installato su ambienti windows. In questo caso usiamo TFS per il versionamento dei file. 
+Il __BOM__ è un gestore di contenuti sviluppato e di proprietà di Websolute. E' molto potente, solido e personalizzabile. Per questo motivo viene spesso utilizzato per progetti di una certa complessità. E' sviluppato in *dotnet* e *aspnet* ed installato su ambienti windows. In questo caso, solitamente, usiamo TFS per il versionamento dei file. In alcuni progetti viene integrato anche con git.
 
-Come anticipato, abbiamo preparato un pacchetto base blank alternativo a quello visto nel capitolo [progetto base front-end](progetto-frontend) ed è scaricabile al seguente link:
+Per integrare nel BOM il [progetto blank ](progetto-frontend) che ci è servito per sviluppare i primi montaggi statici, dobbiamo apportare alcune modifiche che vediamo di seguito.
 
-<a href="#" class="btn" target="_blank">Scarica BOM Starter Theme</a>
 
-Una volta scaricati i file del progetto BOM preparato dagli sviluppatori, basterà copiare i file del progetto base BOM nella root.
-
-In realtà è lo stesso [progetto blank ](progetto-frontend) ma adattato all'ambiente del BOM, quindi le logiche, le path e i task del gulpfile rimangono per lo più le stesse. 
-
-Vediamo più nel dettaglio cosa cambia.
+La struttura rimane molto simile al boilerplate base. Vediamo più nel dettaglio cosa cambia.
 
 ---
 
 ## Alberatura
 
-L'alberatura è pressochè identica se non fosse per la cartella __/montaggi__ in cui andremo a mettere i nostri file html statici e non più sulla root come nalle [progetto base generico ](progetto-frontend). 
+L'alberatura è pressochè identica. Avremo in src i sorgenti sass e js, mentre in dist tutti gli assets, i css e i js compilati. 
 
-Per accedere e vedere con il browser i montaggi, basterà andare nell'url raggiungendo direttamente il file, che verrà risolto senza problemi (es: http://nomesito.it/montaggi/homepage.chtml)
+Per accedere e vedere con il browser i montaggi, basterà andare nell'url raggiungendo direttamente il file, che verrà risolto senza problemi (es: http://nomesito.it/dist/homepage.chtml)
+
 
 ```
 
 project
 │
 └───dist
+│   └───assets
+│       └───img
+│       └───fonts
 │   └───css
 |       └───vendor
-│   └───fonts
-│   └───img
 │   └───js
 |       └───vendor
+|   └───partials
+|       └───static-header.cshtml
+|       └───static-footer.cshtml
+|   └───static-homepage.cshtml
 │   
 └───src
-│   └───fonts
-│   └───img
 │   └───js
 |       └───vendor
 │   └───scss
@@ -48,23 +47,23 @@ project
 │                └───fontawesome
 │                └───slick
 |
-└───montaggi
-|    └───partials
-|
 |
 
 ```
 
-Essendo l'ambiente *dotnet*, potremo utilizzare delle inclusioni di file come l'*head* o il *footer*, elementi comuni a tutti i template statici. 
-Per questo abbiamo dei file che sono in *dotnet* con estensione *cshtml*. 
 
-All'interno della cartella __/montaggi__ troviamo i template principali con all'interno il codice di inclusione dei partial interessati, che troviamo nella __/montaggi/partial__ 
+Essendo l'ambiente *dotnet*, potremo utilizzare delle inclusioni di file come l'*head* o il *footer*, elementi comuni a tutti i template statici. 
+Per questo abbiamo modificato l'estensione dei file da .html a .cshtml, cioè inin *dotnet*. Per una maggiore chiarezza, abbiamo deciso di usare la convenzione *static-nomepagina.php* per non confonderci con i file template del bom. 
+
+All'interno della cartella __/dist__ troviamo i template principali con all'interno il codice di inclusione dei partial interessati, che troviamo nella __/dist/partials__ 
+
+>NB: i __partials__ sono indipendenti e ad uso e consumo soltanto dei file presenti in __/dist__ e non dei layout del BOM.
+
+```
+MANCA LA FUNZIONE DI INCLUSIONE
+```
 
 >Questo offre un grande vantaggio poichè, se ad esempio dovessimo modificare il footer di tutti i montati statici, potremo farlo cambiando un solo file.
-
->NB: i __partials__ sono indipendenti e ad uso e consumo soltanto dei file presenti in __/montaggi__.
-
-Chiaramente i riferimenti dei template statici ai file all'interno di /dist sono stati modificati così da adattarci in maniera adeguata alla nuova alberatura.
 
 ---
 
@@ -82,17 +81,17 @@ __cosa fanno:__ ad ogni compilazione, i task di TFS faranno un checkout sbloccan
 
 ```
 gulp.task('checkout:css', function () {
-  return gulp.src([
-      './dist/css/main.css'
-  ])
-    .pipe(tfs.checkout())
+    return gulp.src([
+        './dist/css/*.css'
+    ])
+      .pipe(tfs.checkout())
 });
 ```
 
 ```
 gulp.task('checkout:js', function () {
     return gulp.src([
-        './dist/js/main.js'
+        './dist/js/*.js',
     ])
     .pipe(tfs.checkout())
 });
@@ -104,27 +103,16 @@ __cosa fa__: fa il checkout di tutti i file css nella cartella dist per abilitar
 
 ```
 gulp.task('checkout:all', function () {
-  return gulp.src([
-      './dist/css/*'
-  ])
-      .pipe(tfs.checkout());
-});
-```
-
-## task checkout:publish
-
-__cosa fa__: fa il checkout di tutti i file immagine e dei font della cartella dist per abilitare i permessi di scrittura.
-
-```
-gulp.task('checkout:publish', function () {
     return gulp.src([
-        './dist/img/*',
-        './dist/fonts/*'
+        './dist/css/*.css',
+        './dist/css/**/.css',
+        './dist/js/*.js',
+        './dist/js/**/*.js',
     ])
-    .pipe(tfs.checkout());
+    .pipe(tfs.checkout())
 });
 ```
 
 ---
 
-Per il resto rimane tutto invariato al tema generico.
+Per il resto rimane tutto invariato al boilerplate generico.

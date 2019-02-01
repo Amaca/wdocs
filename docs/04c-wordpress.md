@@ -4,13 +4,11 @@ title: Progetto Wordpress
 sidebar_label: progetto Wordpress
 ---
 
-Oltre al [BOM](bom), Websolute sviluppa molti siti web basati su [Wordpress](https://it.wordpress.org/), la nota piattaforma di blogging divenuta ormai un vero e proprio CMS grazie all'utilizzo di plug-in come [Advanced Custom Fields](https://www.advancedcustomfields.com/) e [Toolset](https://toolset.com/). 
+Oltre al [BOM](bom), Websolute sviluppa molti siti web basati su [Wordpress](https://it.wordpress.org/), la nota piattaforma di blogging divenuta ormai un vero e proprio CMS grazie all'utilizzo di plug-in come [Advanced Custom Fields](https://www.advancedcustomfields.com/). 
 
-Abbiamo preparato un altro tema base, scaricabile qui:
+Vogliamo quindi integrare il nostro boilerplate anche in un tema wordpress.
 
-<a href="https://github.com/Amaca/WStheme" class="btn" target="_blank">Scarica Wordpress Starter Theme</a>
-
-Il core di WP è scritto in php e questa volta i file sono versionati con GIT. 
+Il core di WP è scritto in php e i file sono versionati con GIT. 
 Una volta scaricati i file di progetto configurati dagli sviluppatori, come prima cosa dobbiamo copiare i nostri file all'interno del tema WP all'interno di __/wp-content/themes/nometema__
 
 ---
@@ -19,7 +17,7 @@ Accedendo all'url direttamente da browser, la pagina non verrà risolta, diversa
 
 Dovremo quindi usare il motore di routing di WP per potervi accedere da url. Come?
 
-1. Creare dei file .php all'interno della cartella __/montaggi__. 
+1. Creare dei file .php all'interno della cartella __/dist__. 
 2. Definire un __modello__ di wordpress con un semplice codice php all'interno di essi.
 3. Aprire un nuovo documento dal back-end di WP, agganciare il nuovo modello e pubblicare il post.
 
@@ -30,20 +28,23 @@ Andiamo a vedere passo passo questo procedimento.
 Questa è l'alberatura del progetto:
 
 ```
-
 project
 │
 └───dist
+│   └───assets
+│       └───img
+│       └───fonts
 │   └───css
 |       └───vendor
-│   └───fonts
-│   └───img
 │   └───js
 |       └───vendor
+|   └───partials
+|       └───static-header.php
+|       └───static-footer.php
+|   └───static-homepage.php
+|   └───static-contact.php
 │   
 └───src
-│   └───fonts
-│   └───img
 │   └───js
 |       └───vendor
 │   └───scss
@@ -53,21 +54,23 @@ project
 │                └───fontawesome
 │                └───slick
 |
-└───montaggi
-│   └───partials
-|
-
 ```
 
-All'interno di __/montaggi__ troviamo alcuni file esemplificativi come *static-homepage.php* e *static-contact.php* . Possono essere creati quanti file vogliamo seguendo la convenzione del nome __static-nomepagina.php__ . 
+All'interno di __/dist__ troviamo alcuni file esemplificativi come *static-homepage.php* e *static-contact.php*. Per una maggiore chiarezza, abbiamo deciso di usare la convenzione *static-nomepagina.php* per non confonderci con i file del core di wp. 
 
-__Possiamo includere dei partials allo stesso modo del pacchetto BOM__, così da facilitare le modifiche, ma sfruttando delle funzioni php già incluse nei file di esempio. 
+>NB: i template php in __/dist__ e in __partials__ non hanno niente a che vedere con i file del tema di wordpress come *header.php* o *footer.php*. Sono indipendenti e ad uso e consumo soltanto dei file presenti in __/dist__.
 
->NB: i __partials__ non hanno niente a che vedere con i file del tema di wordpress come *header.php* o *footer.php*. Sono indipendenti e ad uso e consumo soltanto dei file presenti in __/montaggi__.
+__Possiamo includere dei partials allo stesso modo del pacchetto BOM__, così da facilitare le modifiche, ma sfruttando delle funzioni php:
+
+```
+<?php
+include 'partials/header.php';
+?>
+```
 
 ## 2. Definire modello WP
 
-All'inizio dei file esemplificativi *static-homepage.php* e *static-contact.php* troviamo una dicitura di questo tipo:
+All'inizio dei file esemplificativi *static-homepage.php* dobbiamo inserire una dicitura di questo tipo:
 
 ```
 <?php

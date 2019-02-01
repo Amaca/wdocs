@@ -31,18 +31,14 @@ A prescindere dal programma, i file da inviare in caso di produzione di progetti
 
 ## Programmazione
 
-* __IDE__: Visual Studio 2018
-    * Integrazione TFS (vedi capitolo sul versionamento)
-    * Plugin [PHP tools](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.PHPToolsforVisualStudio) per progetti PHP
+* __IDE__: 
+    - Visual Studio 2018 (Integrazione TFS e plugin [PHP tools](https://marketplace.visualstudio.com/items?itemName=DEVSENSE.PHPToolsforVisualStudio) per progetti PHP)
+    - Visual Studio Code (con plugin TSlint e Beautify)
 * __Client FTP__: [Filezilla](https://filezilla-project.org/), [WinSCP](https://winscp.net/eng/download.php)
-* __Text Edit__: [Notepad++](https://notepad-plus-plus.org/download/v7.5.8.html) DA AGGIUNGERE
-* __Git Client__: [SourceTree](https://www.sourcetreeapp.com/), [GitHub Desktop](https://desktop.github.com/)
+* __Text Edit__: [Notepad++](https://notepad-plus-plus.org/download/v7.5.8.html)
+* __Git Client__: [GitHub Desktop](https://desktop.github.com/), [SourceTree](https://www.sourcetreeapp.com/)
 * __Browser di sviluppo__: [Chrome](https://www.google.com/chrome/), Firefox, Explorer 11, Edge, Safari 11
 
-In alternativa a Visual Studio 2018, si sta iniziando ad usare [Visual Studio Code](https://code.visualstudio.com/), il progetto open source di Microsoft, con gli opportuni plugin: 
-
-*  TSLint
-*  Beautify
 
 ## Comunicazione
 

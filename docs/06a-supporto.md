@@ -10,4 +10,4 @@ Tutto ciò che verrà scritto, andrà a definire i nuovi standard di sviluppo, t
 
 Le tecnologie e le scelte in merito a metodi e strumenti saranno sempre condivise tra i team interni di sviluppo, così da deciderle passo passo, di concerto. 
 
-Se si volesse richiedere delle modifiche o segnalare dei punti della guida, mandate pure una mail a <a href="mailto:wdocs@websolute.it">wdocs@websolute.it</a> 
+Se si volesse richiedere delle modifiche o segnalare dei punti della guida, mandate pure una mail a <a href="mailto:wdocs@websolute.it">wdocs@websolute.it</a> o chiedi l'accesso al canale slack dedicato.

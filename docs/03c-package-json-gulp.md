@@ -60,9 +60,11 @@ Inoltre verrà creato un __package-lock.json__, che viene autogenerato e serve p
 Tra i moduli che troviamo in devDependencies del package.json, ne troviamo alcuni con la dicitura gulp, che è un task runner.
 
 > [Gulp.js](https://gulpjs.com/) è un toolkit JavaScript open-source di Fractal Innovations e la comunità open source di GitHub. È un esecutore di compiti costruito su Node.js e npm, utilizzato per l'automazione di attività ripetitive che richiedono tempo, coinvolte nello sviluppo del web come la minificazione, la concatenazione, il busting della cache, il test di unità, il linting, l’ottimizzazione ecc.
+
 Nel caso in cui Gulp non sia stato ancora installato:
 
 ```
+
 npm install gulp-cli -g
 npm install gulp -D
 ```
